@@ -1,0 +1,9 @@
+# user prompts for loan_calculator
+
+welcome: "Welcome to the Monthly Payment Calculator! We will calculate your monthly payment based on initial loan amount, the annual percentage rate, and the loan duration."
+amount: "Please enter the initial loan amount:"
+apr: "Please enter the APR: (ex. if the APR is 5.5%, please enter: 5.5)"
+duration: "Please enter the expected duration of the loan: years or months?"
+duration_specific: "How many"
+invalid: "Hmm... that doesn't look like a valid value. Please try again."
+final: "Tada! Here is your estimated monthly payment based on the provided info:"

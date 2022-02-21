@@ -1,0 +1,71 @@
+Extra features to implement
+1. Lizard Spock variation
+2. Shortening user input - r for rock, p for paper, s for scissors, l for lizard, and sp for spock
+3. Keep score of the player's and computer's wins
+
+Perhaps possible to implement these features discreet from each other
+
+For #3 - keeping score of the player's and computer's wins
+We need to first recognize and differentiate betwee the player wins, the computer wins, and the draws.
+display_results returns nil because it utilizes the puts method.
+- Perhaps we can define a different methods which takes the same arguments but instead returns a specific value
+or iterates an interators that keeps track player, computer, and draws or an array that fills up slowly...
+Q - does the player need to enter the grand tournament or are they automatically entered when they start playing...
+It would be cool to give the user a choice to enter the tournament - it would make it easier to implement a tournament loop...
+- nevermind, no tournament loop
+if we use iteration to keep track, we need iterators to keep track of player wins, computer wins, and draws.
+- maybe... instead of iterators, we can initialize one array. if player wins, we append 'p', computer wins 'c', and draws 'd'.
+if the instances of p or c in the array reach 3, we print "___ is the grand winner, Final score:....". Instances of 'd'
+allowed is unlimited. So need a method to counts p, c, and d to post the current score after each bout.
+SET score = [] - initialize it 
+  win?(first, second) returns true if first beats second.
+def keeping_score(player, computer, score)
+  if win?(player, computer)
+    score << 'p'
+  elsif win?(computer, player)
+    score << 'c'
+  else
+    score << 'd'
+  end
+  score  # this method returns an array score that has been updated
+end
+SET score = keeping_score
+
+Next challenge = add two more options to the game Lizard and Spock
+currently,
+paper beats rock
+rock beats scissors
+scissors beats paper
+
+with lizard and spock
+rock beats scissors, lizard
+paper beats rock, spock
+scissors beats paper, lizard
+lizard beats spock, paper
+spock beats scissors, rock
+  
+we can change the win coniditon to include many more || statements or
+upon the recommendation of the hints we can create a hash with key/value pairs
+that contain the win/loss relationship between the various selections
+
+which_beats_which = {
+  "rock" => ["scissors", "lizard"],
+  "paper" => ["rock", "Spock"],
+  "scissors" => ["paper", "lizard"],
+  "lizard" => ["Spock", "paper"],
+  "Spock" => ["scissors", "rock"]
+  }
+
+how to access key/value pairs within a hash?
+
+which_beats_which['rock'][0] or [1]
+maybe...
+which_beats_which[first].include?(second) # this should return true or false. True would indicate a win, false would indicate loss or draw.
+which_beats_which[second].include?(first)
+- check both conditions above - if they both are false, then it must be a draw.
+
+  
+Next challenge - shorten user input from full selection name to only first letter. ex) rock to r, or Spock to S
+The user will type in one letter. If we can convert that letter to the full string, then all we need is a converter and we can keep the rest of the code as is
+so r -> rock, s -> scissors, S -> Spock, etc.
+sounds like a hash key/value object might be a good fit

@@ -1,0 +1,65 @@
+Inputs required:
+- the loan amount: p
+- the Annual Percentage Rate (APR) -> monthly interest rate, j
+- the loan duration -> loan duration in months, n
+
+The loan amount doesn't change need to be converted.
+The APR needs to be converted from an annual interest rate to a monthly interest rate, j
+The loan duration, if given in years, should be converted to months, n
+
+Formula is as follows:
+
+m = p * (j / (1 - (1 + j)**(-n)))
+
+*use explicit variable names instead of single-letter variables to make the code more readable.
+
+Outputs expected:
+Given the inputs above, solve for m. Before we solve for m, we need to convert APR and loan duration to j and n.
+
+j - monthly interest rate
+n - loan duration in months
+m - monthly payment
+
+
+Based on the above, the program may flow as follows:
+User inputs a loan amount, an APR, and a loan duration.
+- Loan amount should be able to take integers as well as floats to account for cents.
+- The APR should be able to take an integer and float % value - ex. 5% or 5.5%
+- Loan duration - take an integer value and then ask user to clarify if value was in years or months
+(aka make sure the user enters a valid number, else return an error and repropmt the user)
+*question - is it possible to control the number of digits entered after the decimal in a float? - probably yes - then how?
+
+Psuedocode
+START
+# Given three values - loan amount, APR, and loan duration
+SET loan_amount = user inputted loan amount
+SET apr = user inputted APR
+SET loan_duration = user inputted loan duration
+END
+
+Prompt the user for these values separately and at each point, verify the validity of the values entered. If the entered value is valid, convert it into usable form
+Loan amount
+- if the user enters nothing or a non-num character, we should return an error message and prompt again.
+- if possible, limit to two digits after the decimal point if user enters number with decimal values.
+- otherwise, keep as is and save to value.
+
+APR
+- if the user enters nothing or a non-num character, we should return an error message and prompt again.
+- save the APR value
+- convert APR % into decimal by dividing by 100
+- convert to monthly interest rate by dividing the decimal APR number by 12 - save the return value
+
+Loan duration
+- if the user enters nothing or a non-num character, we should return an error message and prompt again.
+- once the user enters a valid integer, prompt the user to choose year(s) or month(s)
+- if year(s), multiply by 12 for the number of months and save the value
+- if month(s), save the value directly
+
+After going through all of these processing steps, we can pass the saved values into the provided fomula.
+The return should be the monthly payment.
+
+
+
+
+
+
