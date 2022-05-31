@@ -46,5 +46,37 @@
 # p a_method # => return value has become `nil`, which makes sense because the last expression within the method is now `puts`
 
 
-# `select`
+# # `select`
+# [1, 2, 3].select do |num|
+#   num.odd?
+# end
+
+# [1, 2, 3].select do |num|
+#   num + 1
+# end
+
+# [1, 2, 3].select do |num|
+#   num + 1
+#   puts num
+# end
+
+
+
+# # map
+# [1, 2, 3].map do |num|
+#   num * 2
+# end
+
+# [1, 2, 3].map do |num|
+#   num.odd?
+# end
+
+# [1, 2, 3].map do |num|
+#   num.odd?
+#   puts num
+# end
+
+# [1, 2, 3].map do |num|
+#   'hi'
+# end
 

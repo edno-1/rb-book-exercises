@@ -112,6 +112,18 @@ Iterate through every character in the string
     - move to the next character in the string
 After iterating through the entire string without a third instance of the given character, return nothing.
 
+# def third_instance(string, given_char)
+#   count = 0
+#   location = nil
+  
+#   string.chars.each_with_index do |char, index|
+#     count += 1 if char == given_char
+#     location = index if count == 3
+#   end
+  
+#   location
+# end
+
 START
 # Given a string called "string" and specific character called "specific"
 SET iterator = 1
